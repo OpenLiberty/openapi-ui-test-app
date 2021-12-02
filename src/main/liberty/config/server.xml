@@ -1,0 +1,71 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+    <feature>jaxrs-2.1</feature>
+    <feature>jsonp-1.1</feature>
+    <feature>jsonb-1.0</feature>
+    <feature>jaxb-2.2</feature>
+    <feature>cdi-2.0</feature>
+    <feature>openapi-3.1</feature>
+    <feature>appSecurity-3.0</feature>
+    <feature>oauth-2.0</feature>
+  </featureManager>
+
+  <variable name="default.http.port" defaultValue="9080" />
+  <variable name="default.https.port" defaultValue="9443" />
+
+  <httpEndpoint httpPort="${default.http.port}"
+    httpsPort="${default.https.port}" id="defaultHttpEndpoint" host="*" />
+
+
+  <cors domain="/" allowedOrigins="*"
+    allowedMethods="GET,POST,PUT,DELETE,OPTIONS"
+    allowedHeaders="*"
+    allowCredentials="true" />
+
+  <basicRegistry id="basic" realm="BasicRealm">
+    <user name="testuser" password="testpassword" />
+  </basicRegistry>
+
+  <oauth-roles>
+    <authenticated>
+      <user name="testuser"/>
+    </authenticated>
+  </oauth-roles>
+  
+  <webAppSecurity allowFailOverToBasicAuth="true" />
+
+  <oauthProvider id="SampleProvider"
+    filter="request-url%=/private">
+    <autoAuthorizeClient>client01</autoAuthorizeClient>
+    <localStore>
+      <client name="mp-ui" secret="abc"
+        displayname="MicroProfile OpenAPI UI"
+        redirect="https://localhost:9443/openapi/ui/oauth2-redirect.html"
+        enabled="true" />
+      <client name="openapi-ui" secret="abc"
+        displayname="openapi feature UI"
+        redirect="https://localhost:9443/api/explorer/oauth2-redirect.html"
+        enabled="true"/>
+      <client name="dev" secret="abc"
+        displayname="Development client"
+        redirect="http://localhost:8080/oauth2-redirect.html"
+        enabled="true" />
+    </localStore>
+  </oauthProvider>
+  
+  <administrator-role user="testuser"/>
+
+  <keyStore password="testpass" />
+  
+  <webApplication id="openapi-test-app" location="openapi-test-app.war" name="openapi-test-app">
+    <application-bnd>
+      <security-role name="restricted">
+        <user name="testuser"/>
+      </security-role>
+    </application-bnd>
+  </webApplication>
+
+  <!-- <logging traceSpecification="com.ibm.ws.microprofile.openapi.*=all:io.openliberty.microprofile.openapi20.*=all"/> -->
+
+</server>

@@ -1,0 +1,6 @@
+.swagger-ui .headerbar {
+   background-color: #1ba6bd;
+}
+ .swagger-ui .headerbar .headerbar-wrapper {
+   background-image: url(images/custom-logo.png);
+}

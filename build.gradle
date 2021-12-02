@@ -1,0 +1,32 @@
+plugins {
+    id 'war'
+    id "io.openliberty.tools.gradle.Liberty" version "3.1.2"
+    id 'wrapper'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly platform('org.eclipse.microprofile:microprofile:4.0.1')
+    compileOnly 'jakarta.platform:jakarta.jakartaee-api:8.0.0'
+    compileOnly 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.3'
+    compileOnly 'org.eclipse.microprofile.openapi:microprofile-openapi-api'
+}
+
+liberty {
+    // Set this to your open-liberty workspace /dev/build.image/wlp
+    //installDir = "/path/to/my/open-liberty/dev/build.image/wlp"
+    installDir = "/home/andrew/git/open-liberty/dev/build.image/wlp"
+    server {
+        name = "openapiTestServer"
+    }
+}
+
+// Uncomment this section AND COMMENT OUT installDir ABOVE
+// to run against a specific liberty release
+
+//dependencies {
+//    libertyRuntime group: 'io.openliberty', name: 'openliberty-runtime', version: '21.0.0.11'
+//}
