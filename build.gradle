@@ -2,6 +2,7 @@ plugins {
     id 'war'
     id "io.openliberty.tools.gradle.Liberty" version "3.1.2"
     id 'wrapper'
+    id 'checkstyle'
 }
 
 repositories {
@@ -13,6 +14,10 @@ dependencies {
     compileOnly 'jakarta.platform:jakarta.jakartaee-api:8.0.0'
     compileOnly 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.3'
     compileOnly 'org.eclipse.microprofile.openapi:microprofile-openapi-api'
+}
+
+checkstyle {
+    toolVersion '9.2.1'
 }
 
 liberty {
