@@ -58,7 +58,7 @@
 
   <keyStore password="testpass" />
   
-  <webApplication id="openapi-test-app" location="openapi-test-app.war" name="openapi-test-app">
+  <webApplication id="openapi-ui-test-app" location="openapi-ui-test-app.war" name="openapi-ui-test-app">
     <application-bnd>
       <security-role name="restricted">
         <user name="testuser"/>

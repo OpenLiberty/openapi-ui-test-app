@@ -37,7 +37,7 @@ The Liberty OpenAPI UI is an extended version of [Swagger UI][swagger-ui] which 
  - Hold Shift and click the reload button to ensure that all resources are reloaded
  - Check the OpenLiberty logo is at the top of the page
  - Check the filter bar is present at the top of the page
-   - Check that filtering for openapi-test-app (or any prefix) works
+   - Check that filtering for openapi-ui-test-app (or any prefix) works
    - Check that filtering for anything else gives no operations
  - Check that the top of the page has "Liberty REST APIs"
  - Check the OAS badge colour
