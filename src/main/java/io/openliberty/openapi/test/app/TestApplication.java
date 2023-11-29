@@ -36,8 +36,8 @@ import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 @SecurityScheme(securitySchemeName = "apikey", type = SecuritySchemeType.APIKEY, in = SecuritySchemeIn.QUERY,
                 apiKeyName = "apiKey")
 @SecurityScheme(securitySchemeName = "oauth", type = SecuritySchemeType.OAUTH2,
-                flows = @OAuthFlows(authorizationCode = @OAuthFlow(authorizationUrl = "https://localhost:9443/oauth2/endpoint/SampleProvider/authorize",
-                                                          tokenUrl = "https://localhost:9443/oauth2/endpoint/SampleProvider/token",
+                flows = @OAuthFlows(authorizationCode = @OAuthFlow(authorizationUrl = "/oauth2/endpoint/SampleProvider/authorize",
+                                                          tokenUrl = "/oauth2/endpoint/SampleProvider/token",
                                                           scopes = @OAuthScope(name = "test"))))
 @ApplicationPath("/")
 public class TestApplication extends Application {
