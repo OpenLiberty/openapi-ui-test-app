@@ -1,0 +1,69 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+    <platform>microprofile-7.0</platform>
+    <platform>jakartaee-10.0</platform>
+    <feature>restfulWS</feature>
+    <feature>jsonp</feature>
+    <feature>jsonb</feature>
+    <feature>jaxb</feature>
+    <feature>cdi</feature>
+    <feature>mpOpenAPI</feature>
+    <feature>appSecurity</feature>
+    <feature>oauth-2.0</feature>
+  </featureManager>
+
+  <variable name="default.http.port" defaultValue="9081" />
+  <variable name="default.https.port" defaultValue="9444" />
+
+  <httpEndpoint httpPort="${default.http.port}"
+    httpsPort="${default.https.port}" id="defaultHttpEndpoint" host="*" />
+
+
+  <cors domain="/" allowedOrigins="*"
+    allowedMethods="GET,POST,PUT,DELETE,OPTIONS"
+    allowedHeaders="*"
+    allowCredentials="true" />
+
+  <basicRegistry id="basic" realm="BasicRealm">
+    <user name="testuser" password="testpassword" />
+  </basicRegistry>
+
+  <oauth-roles>
+    <authenticated>
+      <user name="testuser"/>
+    </authenticated>
+  </oauth-roles>
+  
+  <webAppSecurity allowFailOverToBasicAuth="true" />
+
+  <oauthProvider id="SampleProvider"
+    filter="request-url%=/private">
+    <autoAuthorizeClient>client01</autoAuthorizeClient>
+    <localStore>
+      <client name="mp-ui" secret="abc"
+        displayname="MicroProfile OpenAPI UI"
+        redirect="https://localhost:9444/openapi/ui/oauth2-redirect.html"
+        enabled="true" />
+      <client name="dev" secret="abc"
+        displayname="Development client"
+        redirect="http://localhost:8081/oauth2-redirect.html"
+        enabled="true" />
+    </localStore>
+  </oauthProvider>
+  
+  <administrator-role user="testuser"/>
+
+  <keyStore password="testpass" />
+  
+  <webApplication id="openapi-ui-test-app-31" location="openapi-ui-test-app-31.war" name="openapi-ui-test-app-31">
+    <application-bnd>
+      <security-role name="restricted">
+        <user name="testuser"/>
+      </security-role>
+    </application-bnd>
+  </webApplication>
+
+  <!-- <logging traceSpecification="com.ibm.ws.microprofile.openapi.*=all:io.openliberty.microprofile.openapi20.*=all"/> -->
+
+</server>
