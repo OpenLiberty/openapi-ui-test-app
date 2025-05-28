@@ -1,7 +1,6 @@
 plugins {
     id 'war'
     id "io.openliberty.tools.gradle.Liberty" version "3.1.2"
-    id 'wrapper'
     id 'checkstyle'
 }
 
@@ -29,6 +28,8 @@ liberty {
         configDirectory = file("src/main/liberty/config") // workaround to ensure config files are always copied OpenLiberty/ci.gradle#686
     }
 }
+
+archivesBaseName = 'openapi-ui-test-app'
 
 // Uncomment this section AND COMMENT OUT installDir ABOVE
 // to run against a specific liberty release

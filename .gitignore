@@ -1,6 +1,4 @@
-/.gradle/
-/build/
-/.checkstyle
-/.classpath
+/.gradle
+/build
 /.project
 /.settings
