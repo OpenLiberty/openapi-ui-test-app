@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import org.eclipse.microprofile.openapi.annotations.ExternalDocumentation;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeIn;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
@@ -32,7 +33,9 @@ import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
                                                    email = "tauthor@example.com",
                                                    url = "http://example.com/tauthor"),
                                 license = @License(name = "Example License", url = "http://example.com/exampleLicense"),
-                                termsOfService = "http://example.com/tos"))
+                                termsOfService = "http://example.com/tos"),
+                                externalDocs = @ExternalDocumentation(description = "Docs", url = "http://example.com/docs")
+)
 @SecurityScheme(securitySchemeName = "apikey", type = SecuritySchemeType.APIKEY, in = SecuritySchemeIn.QUERY,
                 apiKeyName = "apiKey")
 @SecurityScheme(securitySchemeName = "oauth", type = SecuritySchemeType.OAUTH2,
