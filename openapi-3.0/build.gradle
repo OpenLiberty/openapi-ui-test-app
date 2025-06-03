@@ -20,9 +20,6 @@ checkstyle {
 }
 
 liberty {
-    // Set this to your open-liberty workspace /dev/build.image/wlp
-    //installDir = "/path/to/my/open-liberty/dev/build.image/wlp"
-    installDir = "/home/andrew/git/open-liberty/dev/build.image/wlp"
     server {
         name = "openapiTestServer"
         configDirectory = file("src/main/liberty/config") // workaround to ensure config files are always copied OpenLiberty/ci.gradle#686
