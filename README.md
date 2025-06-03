@@ -24,7 +24,7 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - [ ] OpenLiberty logo is at the top of the page
 - [ ] No filter bar at the top of the page
 - [ ] Top of the page has the title and description for the application but no links
-- [ ] `OAS3` icon surrounding colour is `#5d8203` via element inspection
+- [ ] `OAS 3.0` icon surrounding colour is `#5d8203` via element inspection
 - [ ] Footer is present
 - [ ] Footer contains links for `Terms of service`, `Test Author - Website`, `Contact Test Author`, `Example license` and `Docs`
 - [ ] No `Valid` button in footer
@@ -38,8 +38,8 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - [ ] Forced reload causes all resources to be reloaded
 - [ ] OpenLiberty logo is at the top of the page
 - [ ] No filter bar at the top of the page
-- [ ] Top of the page has the title and description for the application but no links
-- [ ] `OAS3.1` icon surrounding colour is `#5d8203` via element inspection
+- [ ] Top of the page has the title, summary and description for the application but no links
+- [ ] `OAS 3.1` icon surrounding colour is `#5d8203` via element inspection
 - [ ] Footer is present
 - [ ] Footer contains links for `Terms of service`, `Test Author - Website`, `Contact Test Author`, `Apache 2.0` and `Docs`
   - [ ] Apache 2.0 link works
@@ -70,7 +70,7 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - Click `Authorize` and go to `oauth` section
 - Provide `Client_id` `mp-ui`
 - Provide `Client_secret` `abc`
-- Select Test Scope
+- Select `test` scope
 - Click `authorize`
   - Login with user credentials `testuser`/`testpassword`
   - click `allow once`
@@ -78,22 +78,21 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - Close modal
 - [ ] All `/private*` operations now have a locked padlock
 - Expand `POST /private`
-- Click `Try Out`
-  - [ ] Click `Execute` and get a `200` response
+  - Click `Try Out`
+    - [ ] Click `Execute` and get a `200` response
 - [ ] Expand `GET /apiKeyNeeded`
   - [ ] Padlock is `unlocked`
   - [ ] Description is `Get a random record`
-  - [ ] Click Try Out
+  - Click Try Out
     - [ ] Click Execute and get a `403` response
 - Click `Authorize`
   - Enter apikey `12345`
   - Click `Authorize`
   - Close modal
 - Expand `GET /apiKeyNeeded`
-  - [ ]  Operation has a locked padlock
-  - Click Try Out
-  - Click Execute
-    - [ ] 200 response
+  - [ ] Operation has a locked padlock
+  - Click `Try Out`
+    - [ ] Click `Execute` and get a `200` response
 
 ### `openapi-3.x` Public UI
 
@@ -108,9 +107,9 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - [ ] No `Valid` button in page footer
 - [ ] Two Server values in Server dropdown
 - Select `HTTPS` server url
-- Expand `GET /{id}` operation
+- Expand `GET /openapi-ui-test-app/{id}` operation
   - [ ] Two responses - `200` and `404` displayed
-  - Change `media type` in drop down
+  - Change `Media type` in drop down
     - [ ] Example changes from either JSON -> XML or XML->JSON
   - [ ]  Can switch between `Example Value` and `Schema`
   - [ ] Attempt to provide an ID value and should be prohibited from doing so
@@ -121,38 +120,37 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
     - Change ID value to `0`
     - Click `Execute`
       - [ ] `404` response
-- Expand `POST /private`
+- Expand `POST /openapi-ui-test-app/private`
   - [ ] Padlock Icon is `Unlocked`
   - Click `Try Out`
     - Click execute
     - [ ] `401` response
 - Click `Authorize` and go to `oauth` section
-- Provide `Client_id` provided in README
-- Provide `Client_secret` provided in README
-- Select Test Scope
+- Provide `Client_id` `openapi-ui`
+- Provide `Client_secret` `abc`
+- Select `test` scope
 - Click `authorize`
-  - Login with user credentials provided in README
+  - Login with user credentials `testuser`/`testpassword`
   - click `allow once`
   - [ ] returned to the OpenAPI UI
 - Close modal
-- [ ] All `/private*` operations now have a locked padlock
-- Expand `POST /private`
+- [ ] All `/openapi-ui-test-app/private*` operations now have a locked padlock
+- Expand `POST /openapi-ui-test-app/private`
   - Click `Try Out`
   - [ ] Click `Execute` and get a `200` response
-- [ ] Expand `GET /apiKeyNeeded`
+- [ ] Expand `GET /openapi-ui-test-app/apiKeyNeeded`
   - [ ] Padlock is `unlocked`
   - [ ] Description is `Get a random record`
-  - [ ] Click Try Out
+  - Click Try Out
     - [ ] Click Execute and get a `403` response
 - Click `Authorize`
-  - Enter apikey from README
+  - Enter apikey `12345`
   - Click `Authorize`
   - Close modal
-- Expand `/apiKeyNeeded`
+- Expand `/openapi-ui-test-app/apiKeyNeeded`
   - [ ] Operation has a locked padlock
   - Click `Try Out`
-    - Click `Execute`
-    - [ ] `200` response
+    - [ ] Click `Execute` and get a `200` response
 
 ### `openapi-3.x` Private UI
 
@@ -163,7 +161,7 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - [ ] Filter using `openapi-ui-test-app` (or any prefix of that) returns the operations
 - [ ] Filter using any other value returns no operations
 - [ ] Top of the Page has `Liberty REST APIs`
-- [ ] `OAS3` icon surrounding colour is `#5d8203` via element inspection
+- [ ] `OAS 3.0` icon surrounding colour is `#5d8203` via element inspection
 - [ ] No `Valid` button in page footer
 
 ### Test customizations

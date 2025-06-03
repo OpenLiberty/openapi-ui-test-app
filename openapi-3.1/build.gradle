@@ -19,10 +19,15 @@ checkstyle {
 }
 
 liberty {
+    installDir = project.findProperty('ui.test.liberty.installDir')
     server {
         name = "openapiTestServer31"
-        configDirectory = file("src/main/liberty/config") // workaround to ensure config files are always copied OpenLiberty/ci.gradle#686
     }
+}
+
+// Usually testing a pre-release server, so don't check for features to install
+tasks.named("installFeature") {
+    enabled = false
 }
 
 archivesBaseName = 'openapi-ui-test-app-31'
