@@ -13,8 +13,7 @@ If something looks wrong, it can be useful to compare how it's rendered in the o
 - Java 17 or later is required
 - Build liberty locally with the changes you want to test
 - Clone this repository
-- In `build.gradle` update `installDir` to point to the `build.image/wlp` directory in your workspace so that the test runs on your locally built liberty
-  - If you need to test against a released version of liberty, you can comment out `installDir` and uncomment the `dependencies` section instead
+- In `gradle.properties` update `ui.test.liberty.installDir` to point to the `build.image/wlp` directory in your workspace so that the test runs on your locally built liberty
 - start the server and deploy the test application by running `./gradlew libertyStart`
 
 ### MicroProfile UI (OpenAPI 3.0)
